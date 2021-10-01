@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <title>Deposit CAlculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+<!------------------------------ ХЕДЕР ----------------------------->
+
+        <header class="header">
+            <div class="header-logo">
+                <img src="./assets/Images/logo-mini.png" alt="logo">
+            </div>
+            <div class="header-name">
+                <h1>iq dev</h1>
+            </div>
+            <div class="header-info">
+                <p>Deposit Calculator</p>
+            </div>
+        </header>
+
+
+<!---------------------------  Калькулятор  ---------------------------->
+
+        <div class="calculator-container">
+            <div class="calsulator-name">
+                <h2>
+                    Депозитный Калькулятор
+                </h2>
+                <p>
+                    Калькулятор депозитов позволяет рассчитать ваши доходы после внесения суммы на счет в банке по опредедленному тарифу.
+                </p>
+            </div>
+            
+            <div class="calculator">
+
+                <form class="calculator-form" action="#" method="post" enctype="multipart/form-data">
+                    <input class="input-field" type="text" value="" placeholder="Дата открытия">
+                    <input class="input-field" type="text" value="" placeholder="Срок Вклада">
+                    <input class="input-field" type="text" value="" placeholder="Сумма Вклада">
+                    <input class="input-field" type="text" value="" placeholder="Процентная Ставка">
+                    <div class="input-field">
+                        <input checked class="checkbox" id="checkbox_id" type="checkbox" value="yes" placeholder="Дата открытия">
+                        <label for="checkbox_id">Ежемесячное пополнение вклада</label>
+                    </div>
+                    <input class="input-field" type="text" value="" placeholder="Сумма Пополнения Вклада">
+                </form>
+                    <div class="btn-container">
+                        <button class="btn" type="submit" >Рассчитать</button>
+                    </div>
+
+                
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
