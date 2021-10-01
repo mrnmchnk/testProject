@@ -100,12 +100,20 @@ h2 {
     border: none;
 } */
 
-.checkbox {
+.is-refillable {
     border: black solid 2px;
     padding: 5px;
 }
 
-.btn {
+.btn-container {
+    margin-left: 60px;
+    margin-bottom: 100px;
+    display: block;
+    border: none;
+}
+
+
+.button-submit {
     background-color: rgb(102, 214, 108);
     width: 30%;
     margin: 40px;
@@ -117,9 +125,3 @@ h2 {
 
 
 
-.btn-container {
-    margin-left: 60px;
-    margin-bottom: 100px;
-    display: block;
-    border: none;
-}
