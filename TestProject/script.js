@@ -6,12 +6,19 @@ $( document ).ready(function() {
         // let depositAmount = $(".depositAmount").val();
         // let percent = $(".percent").val();
         // let refillAmount = $(".refillAmount").val();
+        let checker = 0;
+        if ($('#checkbox_id').is(":checked")) {
+            checker = $(".refillAmount").val();
+        } 
+
+        // alert(checker);
+
         let request = {
             date: $(".date").val(),
             period: $(".period").val(),
             depositAmount: $(".depositAmount").val(),
             percent: $(".percent").val(),
-            refillAmount: $(".refillAmount").val(),
+            refillAmount: checker,
         }
         // let json = JSON.stringify(request);
 
@@ -53,14 +60,12 @@ $( document ).ready(function() {
     });
 
     $(".is-refillable").on('click', function() {
-        
 
         if ($(this).is(':checked')){
             $('.refillAmount').css("visibility", "visible");
         }
         else {
             $('.refillAmount').css("visibility", "hidden");
-
         }
 
     });
