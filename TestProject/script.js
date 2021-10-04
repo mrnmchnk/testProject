@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     // console.log( "ready!" );
+    boom = 0;
     $(".button-submit").on('click',function(){
         // let date = $(".date").val();
         // let period = $(".period").val();
@@ -15,7 +16,7 @@ $( document ).ready(function() {
 
         let request = {
             date: $(".date").val(),
-            period: $(".period").val(),
+            period: ($(".period").val()) * ($(".timetype").val()),
             depositAmount: $(".depositAmount").val(),
             percent: $(".percent").val(),
             refillAmount: checker,
@@ -43,18 +44,30 @@ $( document ).ready(function() {
             data: request,
             
 
-            success: function(result){ /* функция которая будет выполнена после успешного запроса. */
+            success: function(data){ /* функция которая будет выполнена после успешного запроса. */
                 // $('.result').text(data);
                 // var txt = JSON.parse(JSON.stringify(result));
                 // console.log(txt["first"]);
-                console.log(result);
+                let $boom = jQuery.parseJSON(data);
+                // console.log($boom);
+                // $("#chat_answer").html(result.message);
+                // alert(data);
+
+                // $(function (){ 
+                //     $('.boom').append("<p>Результат: </p>",[$boom]);
+                // });
+
+                alert(jQuery.type($boom));
+                
                 // alert(data); /* В переменной data содержится ответ от index.php. */
             }
         });
 
+        // console.log($boom);
 
-
-          
+        // $(function (){ 
+        //     $('.boom').append(boom);
+        // });
 
         // alert(json);
     });

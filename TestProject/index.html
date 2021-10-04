@@ -45,6 +45,10 @@
                 <form class="calculator-form" action="#" method="post" enctype="multipart/form-data">
                     <input class="input-field date" type="date" value="" placeholder="Дата открытия">
                     <input class="input-field period" type="number" value="" placeholder="Срок Вклада">
+                    <select name="timetype" class="timetype"> 
+                        <option value="1" selected>Месяц</option>
+                        <option value="12">Год</option>
+                      </select>
                     <input class="input-field depositAmount" type="number" value="" placeholder="Сумма Вклада">
                     <input class="input-field percent" type="number" value="" placeholder="Процентная Ставка">
                     <div class="input-field">
@@ -59,17 +63,15 @@
                         <button class="button-submit" type="submit" >Рассчитать</button>
                     </div>
 
-                    <select name="timetype" class="timetype"> 
-                        <option value="1" selected>Месяц</option>
-                        <option value="12">Год</option>
-                      </select>
+                    
 
 
                     <!-- <div class="result"></div> -->
                     <h1 class="result"></h1>
-
-
-
+                    
+                    <div class="boom">
+                        
+                    </div>
 
             </div>
 
