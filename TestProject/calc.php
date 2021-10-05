@@ -32,6 +32,7 @@
             $daysY = (!(intval($currentYear) % 4)) ? 366 : 365;
         }
         $sum = ($depositAmount + ($depositAmount + $refillAmount) * (cal_days_in_month(CAL_GREGORIAN, intval($currentMonth), intval($currentYear))) * ($percent / $daysY));
+        $currentMonth++;
         // echo "Месяц ".($i+1)." = ".$sum;
         // echo "<br>";
         $depositAmount = $sum;
