@@ -1,0 +1,136 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+
+   
+   
+    
+
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(202, 202, 202);
+  
+}
+
+/* -------------  ХЕДЕР ------------*/
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 8%;
+    padding: 0 12% 0 ;
+    background-color: rgb(51, 51, 51);
+    display: inline-flex;
+    color: rgb(233, 233, 233);
+    align-items: center;
+    
+}
+
+.header-logo {
+    align-self: flex-end;
+    padding: 15px;
+}
+
+img {
+    width: 25px;
+}
+
+
+/*---------- КАЛЬКУЛЯТОР ---------  */
+
+.calculator-container {
+    /* min-height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    width: 70%;
+    margin: 0 15% 0;
+    padding: 8% 0 0;
+
+}
+
+h2, p {
+    margin: 40px 20px 20px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+
+/* .calculator-name {
+   
+} */
+
+.calculator-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-field {
+    width: 30%;
+    margin: 40px;
+    flex-shrink: 2;
+    padding: 20px;
+    border: black solid 2px;
+}
+
+.input-field:nth-child(6n)  {
+    border: none;
+    /* padding: 0; */
+}
+
+.timetype {
+    flex-shrink: 3;
+}
+
+/* .input-field:last-child  {
+    border: none;
+} */
+
+.is-refillable {
+    border: black solid 2px;
+    padding: 5px;
+}
+
+.btn-container {
+    margin-left: 60px;
+    margin-bottom: 100px;
+    display: block;
+    border: none;
+}
+
+
+.button-submit {
+    background-color: rgb(102, 214, 108);
+    width: 30%;
+    margin: 40px;
+    flex-shrink: 2;
+    padding: 20px;
+    border: none;
+
+}
+
+.button-submit:hover {
+    background-color: rgb(80, 182, 85) ;
+}
+
+.button-submit:active {
+    background-color: rgb(28, 201, 94) ;
+}
