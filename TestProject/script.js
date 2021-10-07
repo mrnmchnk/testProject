@@ -56,12 +56,7 @@ $( document ).ready(function() {
             },
             
         });
-        // let whatr = request.date.split(".")  сплитим массив из поля даты
-        // alert(whatr[1]);
-
-
-
-        // alert(json);
+        
     });
 
 
@@ -77,6 +72,32 @@ $( document ).ready(function() {
         }
 
     });
+
+
+    
+    $('.calculator-form').validate();
+        var $calcForm = $(".calculator-form");
+        if ($calcForm) {
+            $calcForm.validate({
+                rules: {
+                    date: required,
+                    period: {
+                        maxlength: 60
+                    },
+                    
+                },
+                messages: {
+                    date: "ВВЕДИ",
+                    period: "Не более пяти лет",
+                },
+            });
+        };
+
+
+
+        
+
+
 
 
 //     $timetype: $(".timetype").val(),

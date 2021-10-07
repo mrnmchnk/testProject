@@ -45,26 +45,27 @@
             <div class="calculator">
 
                 <form class="calculator-form" action="#" method="post" enctype="multipart/form-data">
-                    <input class="input-field datepicker-here" type="text"  placeholder="Дата открытия">
-                    <input class="input-field period" type="number"   placeholder="Срок Вклада">
-                    <select name="timetype" class="timetype"> 
+                    <input class="input-field datepicker-here" name="date" type="text"  placeholder="Дата открытия" >
+                    <input class="input-field period" type="number" name="period" min="1" max="60"  placeholder="Срок Вклада">
+                    <select name="timetype" class="timetype" name="timetype">
                         <option value="1" selected>Месяц</option>
                         <option value="12">Год</option>
                       </select>
 
-                    <input class="input-field depositAmount" type="number"  min="1000" max="3000000" placeholder="Сумма Вклада">
-                    <input class="input-field percent" type="number"  placeholder="Процентная Ставка">
+                    <input class="input-field depositAmount" type="number" name="depositAmount" min="1000" max="3000000" placeholder="Сумма Вклада">
+                    <input class="input-field percent" type="number" name="percent" min="3" max="100" placeholder="Процентная Ставка">
                     <div class="input-field">
-                        <input checked class="is-refillable" id="checkbox_id" type="checkbox" value="yes" placeholder="Дата открытия">
+                        <input checked class="is-refillable" id="checkbox_id" name="is-refillable" type="checkbox" value="yes" placeholder="Дата открытия">
                         <label for="checkbox_id">Ежемесячное пополнение вклада</label>
                     </div>
-                    <input class="input-field refillAmount" type="number"  placeholder="Сумма Пополнения Вклада">
-                </form>
-
-
+                    <input class="input-field refillAmount" type="number" name="refillAmount" min="0" max="3000000" placeholder="Сумма Пополнения Вклада">
                     <div class="btn-container">
                         <button class="button-submit" type="submit" >Рассчитать</button>
                     </div>
+                </form>
+
+
+                    
 
                     <!-- <select name="timetype" class="timetype"> 
                         <option value="1" selected>Месяц</option>
@@ -96,11 +97,13 @@
             $(".datepicker-here").datepicker({
                 onSelect: function (fd, d, calendar) {
                     if (d.getDate()) {
-                        calendar.hide()
-                    } 
-                }
+                        calendar.hide();
+                    }; 
+                },
 
             });
         });
     </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 </html>
