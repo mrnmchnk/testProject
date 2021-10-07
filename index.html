@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/stylesheet.css">
-    <title>Депозитный Калькулятор</title>
+    <title>Deposit CAlculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="assets/AirDatepicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
     <div class="container">
@@ -14,7 +19,7 @@
 
         <header class="header">
             <div class="header-logo">
-                
+                <img src="./assets/Images/logo-mini.png" alt="logo">
             </div>
             <div class="header-name">
                 <h1>iq dev</h1>
@@ -24,15 +29,81 @@
             </div>
         </header>
 
-        <div class="content-container">
-            <h2>
-                Депозитный Калькулятор
-            </h2>
-            <p>
-                Калькулятор депозитов позволяет рассчитать ваши доходы после внесения суммы на счет в банке по опредедленному тарифу.
-            </p>            
+
+<!---------------------------  Калькулятор  ---------------------------->
+
+        <div class="calculator-container">
+            <div class="calsulator-name">
+                <h2>
+                    Депозитный Калькулятор
+                </h2>
+                <p>
+                    Калькулятор депозитов позволяет рассчитать ваши доходы после внесения суммы на счет в банке по опредедленному тарифу.
+                </p>
+            </div>
+            
+            <div class="calculator">
+
+                <form class="calculator-form" action="#" method="post" enctype="multipart/form-data">
+                    <input class="input-field datepicker-here" name="date" type="text"  placeholder="Дата открытия" >
+                    <input class="input-field period" type="number" name="period" min="1" max="60"  placeholder="Срок Вклада">
+                    <select name="timetype" class="timetype" name="timetype">
+                        <option value="1" selected>Месяц</option>
+                        <option value="12">Год</option>
+                      </select>
+
+                    <input class="input-field depositAmount" type="number" name="depositAmount" min="1000" max="3000000" placeholder="Сумма Вклада">
+                    <input class="input-field percent" type="number" name="percent" min="3" max="100" placeholder="Процентная Ставка">
+                    <div class="input-field">
+                        <input checked class="is-refillable" id="checkbox_id" name="is-refillable" type="checkbox" value="yes" placeholder="Дата открытия">
+                        <label for="checkbox_id">Ежемесячное пополнение вклада</label>
+                    </div>
+                    <input class="input-field refillAmount" type="number" name="refillAmount" min="0" max="3000000" placeholder="Сумма Пополнения Вклада">
+                    <div class="btn-container">
+                        <button class="button-submit" type="submit" >Рассчитать</button>
+                    </div>
+                </form>
+
+
+                    
+
+                    <!-- <select name="timetype" class="timetype"> 
+                        <option value="1" selected>Месяц</option>
+                        <option value="12">Год</option>
+                      </select> -->
+
+
+                    <!-- <div class="result"></div> -->
+                    <h1 class="result"></h1>
+
+                    <div class="boom"></div>
+
+
+            </div>
+
         </div>
 
     </div>
 </body>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+    </script>
+    <script src="./script.js"></script>
+    <script src="assets/AirDatepicker/js/datepicker.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker-here").datepicker({
+                onSelect: function (fd, d, calendar) {
+                    if (d.getDate()) {
+                        calendar.hide();
+                    }; 
+                },
+
+            });
+        });
+    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 </html>
