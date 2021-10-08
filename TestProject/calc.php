@@ -1,76 +1,68 @@
 <?
-    // echo'111111';
 
-    // $t = $_POST['id'];
-    // $tmp = ['first'=>1, 'second' =>2];
-    // echo json_encode($tmp);
-    // echo json_encode($_POST['period']);
-    $period = intval($_POST["period"]);
-    $date = $_POST["date"]);
-    $refillAmount = intval($_POST["refillAmount"]);
-    $depositAmount = intval($_POST["depositAmount"]);
-    $percent = intval($_POST["percent"]);
-    $timetype = intval($_POST[".timetype"]);
+
+
+
+
+    $data = json_decode(file_get_contents('php://input'));
+    // print_r($data);
+    // $wtf = $_POST["jst"];
+    // print_r($data);
+    // echo is_null($data);
+
+    $date = ($data->date);
+    $period = intval($data->period);
+    $depositAmount = intval($data->depositAmount);
+    $percent = intval($data->percent);
+    $timetype = intval($data->period);
+    $refillAmount = intval($data->refillAmount);
+
+
+
+
+    // $period = intval($_POST["period"]);
+    // $date = $_POST["date"];
+    // $refillAmount = intval($_POST["refillAmount"]);
+    // $depositAmount = intval($_POST["depositAmount"]);
+    // $percent = intval($_POST["percent"]);
+    // $timetype = intval($_POST[".timetype"]);
+
+
 
     $daysNboom = explode(".", $date);
     $currentMonth = intval($daysNboom[1]);
     $currentYear = intval($daysNboom[2]);
-    // echo $daysNboom[0];
-    // echo $daysNboom[1];
-    // $daysN = cal_days_in_month(CAL_GREGORIAN, $daysNboom[1], $daysNboom[0]);
-    // echo $daysN;
+    $daysN = cal_days_in_month(CAL_GREGORIAN, intval($currentMonth), intval($currentYear));
     $daysY = (!(intval($currentYear) % 4)) ? 366 : 365;
-    // echo $daysY;
-    // echo gettype(intval($daysNboom[0]));
+
+    $firstrefill = $refillAmount;
+    
     $sumN = 0;
     $sum = 0;
-
     for ($i = 0; $i < $period; $i++) {
         if ($currentMonth > 12) {
             $currentMonth = 1;
             $currentYear++;
             $daysY = (!(intval($currentYear) % 4)) ? 366 : 365;
         }
-        $sum = $depositAmount + ($depositAmount + $refillAmount) * (cal_days_in_month(CAL_GREGORIAN, $currentMonth, $currentYear)) * ($percent / $daysY);
-        $currentMonth++;
-        // echo "Месяц " . ($i+1) . " = " . $sum;
-        // echo "<br>";
+        ($i == 0) ? ($refillAmount = 0) : ($refillAmount = $firstrefill);
+        
+        $sum = ($depositAmount + ($depositAmount + $refillAmount) * (cal_days_in_month(CAL_GREGORIAN, intval($currentMonth), intval($currentYear))) * ($percent / $daysY));
+        
         $depositAmount = $sum;
         $sumN = intval($sum);
+        // echo "Месяц ".($i+1)." = ".$sumN;
+        // echo "<br>"; 
     };
-    // echo $sumN;
-    echo json_encode($sumN);
-
-    // $daysN++;
-    // if ($daysN > 12) {
-    //     $daysN = 1;
-    // }
-    //daysNn =  cal_days_in_month(CAL_GREGORIAN, $daysNboom[1]+1, $daysNboom[0])
-        
-    // echo $depositAmount;
-    // echo "<br>";
-    // echo $refillAmount;
-    // echo "<br>";
-    // echo $daysN;
-    // echo "<br>";
-    // echo $period;
-    // echo "<br>";
-    // echo $daysY;
-   
-
-
-    // $number = cal_days_in_month(CAL_GREGORIAN, 8, 2003); // 31
-    // echo "Всего {$number} дней в Августе 2003 года"; 
-
-
-
-    // if(isset( $_GET["json"])) {
-    //     echo "111";
-    // }
-    // else {
-    //     echo "222";
-    // }
     
-    // echo json_encode(var_dump($_POST));
+    // $etp = json_encode($sumN);
+    // var_dump($etp);
+    $etp = array(
+        "answer"=> "$sumN"
+    );
+    echo(json_encode($etp));
+    
 
-?>
+
+
+
