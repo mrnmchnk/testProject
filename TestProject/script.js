@@ -30,7 +30,7 @@ $(document).ready(function () {
           return;
         }
         $(".line").css({ display: "block" });
-        $(".result").text(`Результат: ${data}`);
+        $(".result").text(`₽ Сумма к выплате: ${data}`);
       },
       error: (data) =>
         $(".result").text(`При запросе произошла ошибка : ${data}`),
@@ -61,7 +61,9 @@ $(document).ready(function () {
 
 let timeTypeValue = $(".timetype").val();
 $(".timetype").on("change", (e) => {
-  timeTypeValue = e.target.value;
+  timeTypeValue = parseInt(e.target.value, 10);
+  console.log(typeof timeTypeValue);
+  console.log(timeTypeValue);
   console.log("timeTypeValue: ", timeTypeValue);
 });
 
@@ -73,7 +75,7 @@ $(".calculator-form").validate({
     period: {
       required: true,
       digits: true,
-      max: timeTypeValue === 1 ? 60 : 5,
+      max: timeTypeValue == 1 ? 60 : 5,
     },
     depositAmount: {
       required: true,
