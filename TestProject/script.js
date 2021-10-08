@@ -56,6 +56,8 @@ $(document).ready(function () {
     //     }
     // }
 
+    const timeTypeValue = $(".timetype").val();
+    console.log('timeTypeValue: ', timeTypeValue);
 
     $(".calculator-form").validate({
         submitHandler: function (formValue) {
@@ -67,8 +69,28 @@ $(document).ready(function () {
         rules: {
         date: required,
         period: {
-        maxlength: 60,
+            required: true,
+            digits: true,
+            max: 60,
         },
+        depositAmount: {
+            required: true,
+            digits: true,
+            min: 1000,
+            max: 3000000,
+        },
+        refillAmount: {
+            required: true,
+            digits: true,
+            min: 0,
+            max: 3000000,
+        },
+        percent: {
+            required: true,
+            digits: true,
+            min: 3,
+            max: 100,
+        }
         },
         messages: {
         date: "ВВЕДИ",
