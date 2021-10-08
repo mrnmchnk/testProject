@@ -46,25 +46,9 @@ $(document).ready(function () {
   });
 });
 
-// $('.period').change(function(e) {
-//     console.log('e: ', e.currentTarget.value);
-// })
-
-// const blockCharsInput = (e, regexp) => {
-//     const cursorPosition = e.target.selectionStart;
-//     const prevValue = e.target.value;
-//     const newValue = prevValue.slice(0, cursorPosition) +e.key + prevValue.slice(cursorPosition);
-//     if(!newValue.match(regexp)) {
-//         e.preventDefault();
-//     }
-// }
-
 let timeTypeValue = $(".timetype").val();
 $(".timetype").on("change", (e) => {
   timeTypeValue = parseInt(e.target.value, 10);
-  console.log(typeof timeTypeValue);
-  console.log(timeTypeValue);
-  console.log("timeTypeValue: ", timeTypeValue);
 });
 
 $(".calculator-form").validate({
